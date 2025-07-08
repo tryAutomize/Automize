@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync Site - Your Digital Shop Assistant, Working 24/7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apex-blue': '#007AFF',
+                        'apex-dark': '#1d1d1f',
+                        'apex-gray': '#86868b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap');
+        body { 
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            min-height: 100vh;
+        }
+        .hero-video {
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        .barber-clip {
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        .phone-mockup {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 2.5rem;
+            padding: 4px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+        .phone-screen {
+            background: white;
+            border-radius: 2.25rem;
+            overflow: hidden;
+            aspect-ratio: 9/19.5;
+            position: relative;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-spacing {
+            padding: 120px 0;
+        }
+        .minimal-button {
+            background: #007AFF;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .minimal-button:hover {
+            background: #0056CC;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+        }
+        .secondary-button {
+            background: transparent;
+            border: 1.5px solid #007AFF;
+            color: #007AFF;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .secondary-button:hover {
+            background: #007AFF;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .section-bg {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-bg {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-video-crop {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: 0 auto 4rem auto;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+        }
+        .cropped-video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-effect">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="text-2xl font-semibold tracking-tight text-white">
+                    Sync<span class="text-apex-blue">Site</span>
+                </div>
+                <div class="hidden md:flex space-x-12">
+                    <a href="#features" class="text-white/80 hover:text-white transition-colors font-medium">Features</a>
+                    <a href="#how-it-works" class="text-white/80 hover:text-white transition-colors font-medium">How it works</a>
+                    <a href="#pricing" class="text-white/80 hover:text-white transition-colors font-medium">Pricing</a>
+                </div>
+                <button class="minimal-button px-6 py-3 text-sm">
+                    Get started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video -->
+    <section class="section-spacing">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Video Hero -->
+            <div class="text-center mb-20 animate-fade-in">
+                <div class="hero-video-crop">
+                    <video autoplay muted loop class="cropped-video">
+                        <source src="barber-video.mp4" type="video/mp4">
+                        <!-- Placeholder for when video doesn't load -->
+                        <div class="w-full h-96 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-apex-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl text-white">▶</span>
+                                </div>
+                                <p class="text-white/70">Demo video</p>
+                            </div>
+                        </div>
+                    </video>
+                </div>
+                
+                <h1 class="text-6xl lg:text-7xl font-light mb-6 tracking-tight text-white">
+                    Your digital shop<br>
+                    <span class="font-semibold">assistant.</span>
+                </h1>
+                <p class="text-2xl text-white/80 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    Built for barbers who want to focus on what they do best.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+                    <button class="minimal-button px-10 py-4 text-lg">
+                        Try Sync Site free
+                    </button>
+                    <button class="secondary-button px-10 py-4 text-lg">
+                        Watch demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <!-- Left: Phone Mockup -->
+                <div class="flex justify-center animate-fade-in">
+                    <div class="phone-mockup w-80">
+                        <div class="phone-screen">
+                            <!-- Phone Status Bar -->
+                            <div class="flex justify-between items-center px-6 py-4 text-xs">
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-1 h-1 bg-green-500 rounded-full"></span>
+                                    <span class="font-medium">9:41</span>
+                                </div>
+                                <div class="flex space-x-1">
+                                    <div class="w-4 h-2 bg-black rounded-sm"></div>
+                                    <div class="w-1 h-2 bg-gray-300 rounded-sm"></div>
+                                    <div class="w-6 h-2 bg-gray-300 rounded-sm"></div>
+                                </div>
+                            </div>
+
+                            <!-- Chat Header -->
+                            <div class="border-b border-gray-50 px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <button class="text-apex-blue text-lg">‹</button>
+                                    <span class="font-semibold">Sync Site</span>
+                                </div>
+                                <div class="text-xs text-apex-gray mt-1">Active now</div>
+                            </div>
+
+                            <!-- Chat Messages -->
+                            <div class="px-6 py-6 space-y-4 bg-gray-50/30 flex-1">
+                                <div class="bg-white p-4 rounded-2xl rounded-tl-md shadow-sm max-w-xs">
+                                    <p class="text-sm">Need a haircut this Thursday</p>
+                                </div>
+                                
+                                <div class="flex justify-end">
+                                    <div class="bg-apex-blue text-white p-4 rounded-2xl rounded-tr-md shadow-sm max-w-xs">
+                                        <p class="text-sm">I have 2:30 PM and 4:00 PM available. Which works better?</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-2xl rounded-tl-md shadow-sm max-w-xs">
+                                    <p class="text-sm">2:30 works perfect</p>
+                                </div>
+
+                                <div class="flex justify-end">
+                                    <div class="bg-apex-blue text-white p-4 rounded-2xl rounded-tr-md shadow-sm max-w-xs">
+                                        <p class="text-sm">Great! Booked you in. See you Thursday.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Message Input -->
+                            <div class="px-6 py-4 border-t border-gray-50">
+                                <div class="bg-gray-100 rounded-full px-4 py-3">
+                                    <span class="text-apex-gray text-sm">Message</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="animate-fade-in">
+                    <h2 class="text-5xl font-light mb-8 tracking-tight text-white">
+                        Never miss<br>
+                        <span class="font-semibold">another call.</span>
+                    </h2>
+                    <p class="text-xl text-white/80 mb-12 leading-relaxed font-light">
+                        Your AI assistant handles bookings, answers questions, and manages your calendar. 
+                        Even when you're busy with clients.
+                    </p>
+
+                    <!-- Barber Shop Image -->
+                    <div class="barber-clip mb-12">
+                        <img 
+                            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="Relaxed barber in modern shop"
+                            class="w-full h-64 object-cover"
+                        />
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mb-12">
+                        <div class="text-center">
+                            <div class="text-3xl font-semibold mb-2 text-white">24/7</div>
+                            <div class="text-white/70 font-light">Always on</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-semibold mb-2 text-white">2 min</div>
+                            <div class="text-white/70 font-light">Setup time</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-semibold mb-2 text-white">80%</div>
+                            <div class="text-white/70 font-light">More bookings</div>
+                        </div>
+                    </div>
+
+                    <button class="minimal-button px-8 py-4 text-lg">
+                        Start free trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-spacing section-bg">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-light mb-6 tracking-tight text-white">
+                    <span class="font-semibold">Effortless.</span> Intelligent.
+                </h2>
+                <p class="text-xl text-white/80 font-light max-w-2xl mx-auto">
+                    Built specifically for barbers who want to grow their business without the hassle.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-apex-blue/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Smart conversations</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Responds naturally to customer questions and books appointments automatically.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-apex-blue/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">📅</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Calendar sync</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Integrates with your existing calendar and sends automatic reminders.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-apex-blue/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl">📱</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Social media</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Automatically creates and posts content to keep your feed active.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section-spacing">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-light mb-6 tracking-tight text-white">
+                    <span class="font-semibold">Simple</span> to start.
+                </h2>
+                <p class="text-xl text-white/80 font-light">Get up and running in minutes, not hours.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-8 flex items-center justify-center">
+                        <img src="phone.png" alt="Phone icon" class="w-16 h-16 object-contain rounded-2xl shadow-md" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Connect your phone</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Forward your business number to Sync Site. Takes less than 2 minutes.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-8 flex items-center justify-center">
+                        <img src="ai-tech.png" alt="AI technology icon" class="w-16 h-16 object-contain rounded-2xl shadow-md" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Customize your AI</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Tell Sync Site about your services, prices, and availability.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-8 flex items-center justify-center">
+                        <img src="barber-fade.png" alt="Barber doing a fade" class="w-16 h-16 object-contain rounded-2xl shadow-md" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Focus on cutting</h3>
+                    <p class="text-white/70 font-light leading-relaxed">
+                        Sync Site handles everything else while you do what you love.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-spacing section-bg">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-light mb-6 tracking-tight text-white">
+                <span class="font-semibold">One plan.</span> Everything included.
+            </h2>
+            <p class="text-xl text-white/80 mb-16 font-light">
+                Simple, transparent pricing for barbers.
+            </p>
+            
+            <div class="card-bg rounded-3xl p-12 shadow-lg border border-white/20 max-w-lg mx-auto">
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900">Professional</h3>
+                <div class="text-6xl font-light mb-8 text-gray-900">$99<span class="text-2xl text-gray-500">/month</span></div>
+                
+                <ul class="space-y-4 mb-12 text-left">
+                    <li class="flex items-center">
+                        <span class="text-green-500 mr-4 text-xl">✓</span>
+                        <span class="font-light text-gray-700">24/7 AI assistant</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-green-500 mr-4 text-xl">✓</span>
+                        <span class="font-light text-gray-700">Unlimited calls & texts</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-green-500 mr-4 text-xl">✓</span>
+                        <span class="font-light text-gray-700">Smart appointment booking</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-green-500 mr-4 text-xl">✓</span>
+                        <span class="font-light text-gray-700">Social media automation</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-green-500 mr-4 text-xl">✓</span>
+                        <span class="font-light text-gray-700">Analytics & insights</span>
+                    </li>
+                </ul>
+                
+                <button class="minimal-button w-full py-4 text-lg mb-4">
+                    Start 14-day free trial
+                </button>
+                <p class="text-sm text-gray-500 font-light">
+                    No credit card required
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-6xl font-light mb-8 tracking-tight text-white">
+                Ready to <span class="font-semibold">grow</span><br>
+                your business?
+            </h2>
+            <p class="text-xl text-white/80 mb-12 font-light max-w-2xl mx-auto">
+                Increase your bookings by up to 80% with Sync Site.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="minimal-button px-12 py-5 text-xl">
+                    Get started today
+                </button>
+                <button class="secondary-button px-12 py-5 text-xl">
+                    Book a demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 section-bg border-t border-white/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-semibold mb-6 md:mb-0 text-white">
+                    Sync<span class="text-apex-blue">Site</span>
+                </div>
+                <div class="flex space-x-8 text-white/70">
+                    <a href="#" class="hover:text-white transition-colors font-light">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors font-light">Terms</a>
+                    <a href="#" class="hover:text-apex-blue transition-colors font-light">Support</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/20 text-center text-white/60 font-light">
+                <p>© 2025 Sync Site. Built by barbers, for barbers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
